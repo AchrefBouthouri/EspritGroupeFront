@@ -23,6 +23,14 @@ import { BookingComponent } from '../main-app/foyer/booking/booking.component';
 import { RegisterComponent } from '../main-app/user/register/register.component';
 import { ForumComponent } from '../main-app/forum/forum/forum.component';
 import { DetailsComponent } from '../main-app/maintenance/reclamation/pages/details/details.component';
+import {ExtendBookingComponent} from "../main-app/foyer/extend-booking/extend-booking.component";
+import {UpdateRoomComponent} from "../main-app/foyer/update-room/update-room.component";
+import {GetAllRoomsComponent} from "../main-app/foyer/get-all-rooms/get-all-rooms.component";
+import {FoyerComponent} from "../main-app/foyer/foyer/foyer.component";
+import {GetAllBookingComponent} from "../main-app/foyer/get-all-booking/get-all-booking.component";
+import {CreateRoomComponent} from "../main-app/foyer/create-room/create-room.component";
+import {CreateBookingComponent} from "../main-app/foyer/create-booking/create-booking.component";
+import {DeleteRoomComponent} from "../main-app/foyer/delete-room/delete-room.component";
 
 export const MaterialRoutes: Routes = [
   {
@@ -122,5 +130,40 @@ export const MaterialRoutes: Routes = [
   {
     path: 'slide-toggle',
     component: SlideToggleComponent
-  }
+  },
+  {
+    path: 'rooms',
+    component: GetAllRoomsComponent
+  },  {
+    path: 'booking',
+    component: BookingComponent
+  },
+  {
+    path: 'foyer',
+    component: FoyerComponent
+  },
+  {
+    path: 'bookingList',
+    component: GetAllBookingComponent
+  },
+  {
+    path: 'addRooms',
+    component: CreateRoomComponent
+  },
+  {
+    path: 'createBooking',
+    component: CreateBookingComponent
+  },
+  {
+    path: 'deleteRoom',
+    component: DeleteRoomComponent
+  },
+  {
+    path: 'updateRoom',
+    component: UpdateRoomComponent
+  },
+  {
+    path: 'ExtendBooking',
+    component: ExtendBookingComponent
+  },
 ];
