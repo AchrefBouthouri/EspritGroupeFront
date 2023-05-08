@@ -1,0 +1,101 @@
+<div class="form-container">
+  <div class="form-field">
+    <label for="mealName">Meal Name:</label>
+    <input type="text" id="mealName" [(ngModel)]="mealName" name="mealName"
+           [ngClass]="{'is-invalid': mealNameInput.invalid && (mealNameInput.dirty || mealNameInput.touched)}"
+           #mealNameInput="ngModel"
+           required
+           [class.form-control]="true"
+           placeholder="Enter mealName">
+    <div class="invalid-feedback">
+      <div *ngIf="mealNameInput.errors?.required">  mealName is required</div>
+
+
+    </div>
+  </div>
+
+  <div class="form-field">
+    <label for="height">Height (in cm):</label>
+    <input type="number" id="height" [(ngModel)]="height" name="height"
+           [ngClass]="{'is-invalid': heightInput.invalid && (heightInput.dirty || heightInput.touched)}"
+           #heightInput="ngModel"
+           [min]="1" [max]="250"
+           required
+           [class.form-control]="true"
+           placeholder="Enter height">
+    <div class="invalid-feedback">
+      <div *ngIf="heightInput.errors?.required">Height is required</div>
+      <div *ngIf="heightInput.errors?.pattern">Invalid input. Please enter numbers only.</div>
+      <div *ngIf="heightInput.errors?.min || heightInput.errors?.max">Height must be between 1 and 250</div>
+    </div>
+  </div>
+
+  <div class="form-field">
+    <label for="weight">weight (in kg):</label>
+    <input type="number" id="weight" [(ngModel)]="weight" name="weight"
+           [ngClass]="{'is-invalid': weightInput.invalid && (weightInput.dirty || weightInput.touched)}"
+           #weightInput="ngModel"
+           [min]="1" [max]="250"
+           required
+           [class.form-control]="true"
+           placeholder="Enter weight">
+    <div class="invalid-feedback">
+      <div *ngIf="weightInput.errors?.required">weight is required</div>
+      <div *ngIf="weightInput.errors?.pattern">Invalid input. Please enter numbers only.</div>
+      <div *ngIf="weightInput.errors?.min || weightInput.errors?.max">weight must be between 1 and 250</div>
+    </div>
+  </div>
+
+  <div class="form-field">
+    <label for="age">age :</label>
+    <input type="number" id="age" [(ngModel)]="age" name="age"
+           [ngClass]="{'is-invalid': ageInput.invalid && (ageInput.dirty || ageInput.touched)}"
+           #ageInput="ngModel"
+           [min]="1" [max]="120"
+           required
+           [class.form-control]="true"
+           placeholder="Enter age">
+    <div class="invalid-feedback">
+      <div *ngIf="ageInput.errors?.required">age is required</div>
+      <div *ngIf="ageInput.errors?.pattern">Invalid input. Please enter numbers only.</div>
+      <div *ngIf="ageInput.errors?.min || ageInput.errors?.max">age must be between 1 and 120</div>
+    </div>
+  </div>
+
+  <div class="form-field">
+    <label for="gender">Gender:</label>
+    <select id="gender" [(ngModel)]="isMale">
+      <option [value]="true">Male</option>
+      <option [value]="false">Female</option>
+    </select>
+  </div>
+
+  <button class="btn" (click)="calculateCaloriePercentage()">Calculate Calorie Percentage</button>
+</div>
+
+<div class="result-container" *ngIf="caloriePercentage">
+  <p>
+    <ngx-gauge size="400"  thick="7"
+               cap="round"
+
+               [type]="gaugeType"
+               [value]="caloriePercentage"
+               [label]="gaugeLabel"
+               [append]="gaugeAppendText"
+               [markers]="markerConfig"
+               [thresholds]="thresholdConfig"
+
+    >
+
+
+    </ngx-gauge>
+    </p>
+</div>
+
+
+
+
+
+
+
+
