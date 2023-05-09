@@ -15,6 +15,17 @@
       <mat-tab-group>
         <mat-tab label="Create room"><mat-card-content><app-create-room></app-create-room></mat-card-content></mat-tab>
         <mat-tab label="Room List"><mat-card-content><app-get-all-rooms></app-get-all-rooms></mat-card-content></mat-tab>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title> Personal data </mat-panel-title>
+            <mat-panel-description> Type your name and age </mat-panel-description>
+          </mat-expansion-panel-header>
+          <mat-form-field>
+            <input matInput placeholder="First name"> </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Age"> </mat-form-field>
+        </mat-expansion-panel>
+
       </mat-tab-group>
     </mat-card>
   </div>

@@ -17,10 +17,10 @@ import {StatisticsComponent} from "./statistics/statistics.component";
 import { FoyerComponent } from './foyer/foyer.component';
 import {FlexModule} from "@angular/flex-layout";
 import { BookingComponent } from './booking/booking.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
-    GetAllRoomsComponent,
     GetAllRoomsComponent,
     CreateRoomComponent,
     DeleteRoomComponent,
@@ -32,7 +32,7 @@ import { BookingComponent } from './booking/booking.component';
     StatisticsComponent,
     FoyerComponent,
     BookingComponent,
-    StatisticsComponent
+
 
 
   ],
@@ -46,7 +46,8 @@ import { BookingComponent } from './booking/booking.component';
     FormsModule,
     RouterModule,
     ReactiveFormsModule,
-    FlexModule
+    FlexModule,
+    MatProgressSpinnerModule
   ],
 
 })

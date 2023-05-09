@@ -20,8 +20,12 @@ export const AppRoutes: Routes = [
       {
         path: 'dashboard',
         loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
+      },
+      {
+        path: 'foyer',
+        loadChildren: () => import('./main-app/foyer/foyer.module').then(m => m.FoyerModule)
       }
     ],
-    
+
   }
 ];

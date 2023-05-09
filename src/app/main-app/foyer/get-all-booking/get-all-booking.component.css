@@ -24,3 +24,23 @@ tr:hover {
   max-width: 800px;
   margin: 0 auto;
 }
+
+
+.card-img-top {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.card-container {
+  padding: 20px;
+}
+.card, .room-card {
+  margin-bottom: 20px;
+  border: 152px solid #ddd;
+  border-radius: 555px;
+  box-shadow: 100px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.room-card {
+  width: calc(25% - 20px);
+  margin: 10px;
+}

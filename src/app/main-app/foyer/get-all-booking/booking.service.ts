@@ -34,4 +34,5 @@ export class BookingService {
     const url = `${this.baseUrl}/statistics?startDate=${startDate}&endDate=${endDate}`;
     return this.http.get<Statistics>(url);
   }
+
 }

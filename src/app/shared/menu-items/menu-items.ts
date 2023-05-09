@@ -13,9 +13,10 @@ const MENUITEMS = [
   { state: 'login', type: 'link', name: 'User', icon: 'person' },
   { state: 'order', type: 'link', name: 'Restaurant', icon: 'food_bank' },
   { state: 'booking', type: 'link', name: 'Foyer', icon: 'domain' },
+  { state: 'foyer', type: 'link', name: 'Rooms', icon: 'domain' },
   { state: 'forum', type: 'link', name: 'Forum', icon: 'forum' },
   { state: 'reclamation', type: 'link', name: 'Reclamation', icon: 'assignment' },
-  
+
   { state: 'button', type: 'link', name: 'Buttons', icon: 'crop_7_5' },
   { state: 'grid', type: 'link', name: 'Grid List', icon: 'view_comfy' },
   { state: 'lists', type: 'link', name: 'Lists', icon: 'view_list' },

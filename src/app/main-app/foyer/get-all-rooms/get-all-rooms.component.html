@@ -19,10 +19,11 @@
   </div>
 
   <div class="row">
-    <div class="col-md-3" *ngFor="let room of rooms">
-      <div class="card">
-        <img src="https://via.placeholder.com/190" class="card-img-top" alt="..." />
-        <div class="card-body">
+    <div  *ngFor="let room of rooms">
+      <div class="col-md-3">
+<!--        <img src="https://via.placeholder.com/190" class="card-img-top" alt="..." />-->
+        <img  src="/assets/images/background/user-info.jpg" class="card-img-top" alt="..." >
+        <div class="col-md-3" class="card-body">
           <h5 class="card-title">Number: {{ room.roomNumber }}</h5>
           <p class="card-text">Description: {{ room.description }}</p>
         </div>
@@ -31,38 +32,36 @@
           <li class="list-group-item">Surface: {{ room.surface }} m²</li>
           <li class="list-group-item">Price: {{ room.price }} €</li>
           <app-delete-room [room]="room" (roomDeleted)="getRooms()"></app-delete-room>
+          <button class="btn btn-primary" (click)="openBookingForm(room)">Book</button>
+          <button mat-icon-button (click)="openBookingForm(room.id)"></button>
 
+          <!--        ///////rtr-->
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title style="color: #1e88e5">Update Room {{ room.roomNumber }}</mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-form-field>
+              <mat-label>Type</mat-label>
+              <mat-select [(ngModel)]="room.roomType" name="roomType">
+                <mat-option *ngFor="let type of roomTypes" [value]="type">{{ type }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Description</mat-label>
+              <input matInput type="text" [(ngModel)]="room.description" name="description">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Surface (m²)</mat-label>
+              <input matInput type="number" [(ngModel)]="room.surface" name="surface">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Price (€)</mat-label>
+              <input matInput type="number" [(ngModel)]="room.price" name="price">
+            </mat-form-field>
+            <button mat-raised-button color="primary" (click)="updateRoom(room.roomNumber, room)">Update</button>
+          </mat-expansion-panel>
+          <!--        //////sd/-->
         </ul>
-<!--        update start-->
-
-        <form fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="16px">
-          <div fxFlex="50" fxFlex.xs="100">
-            <div class="form-group">
-              <label for="roomType">Type:</label>
-              <select class="form-control" id="roomType" [(ngModel)]="room.roomType" name="roomType">
-                <option *ngFor="let type of roomTypes" [value]="type">{{ type }}</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="description">Description:</label>
-              <input class="form-control" type="text" id="description" [(ngModel)]="room.description" name="description">
-            </div>
-          </div>
-          <div fxFlex="50" fxFlex.xs="100">
-            <div class="form-group">
-              <label for="surface">Surface (m²):</label>
-              <input class="form-control" type="number" id="surface" [(ngModel)]="room.surface" name="surface">
-            </div>
-            <div class="form-group">
-              <label for="price">Price (€):</label>
-              <input class="form-control" type="number" id="price" [(ngModel)]="room.price" name="price">
-            </div>
-          </div>
-          <button type="submit" class="btn btn-primary" fxFlex="100" fxFlexOffset.xs="0">Update</button>
-        </form>
-
-        <!--        update finish-->
-
       </div>
     </div>
   </div>
