@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import Reclamation from '../../interfaces/Reclamation';
 import { ReclamationComponent } from '../../reclamation.component';
 import { ReclamationService } from '../../reclamation.service';
 
@@ -44,7 +43,7 @@ export class AddComponent implements OnInit {
     }
     //console.log("data", this.data);
     this.reclamationService.AddReclamation(this.data).subscribe(res => {
-      //console.log('res',res);
+      console.log('res',res);
       this.optionalsecondFormGroup.reset();
       this.optionalfirstFormGroup.reset();
     })

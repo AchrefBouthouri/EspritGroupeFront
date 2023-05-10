@@ -35,6 +35,13 @@ export class ListingComponent implements OnInit {
         this.search();
       })
     });
+    this.reclamationService.onUpdateReclamationEvent.subscribe(resp => {
+      this.reclamationService.getAllReclamation().subscribe(async response => {
+        this.ReclamationList = this.sortReclamationsByAvailablity(response);
+        this.search();
+      })
+    });
+    
   }
   ngOnInit(): void {
     this.reclamationService.getAllReclamation().subscribe(res => {
