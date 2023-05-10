@@ -2,6 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { AppRoutes } from './app.routing';
@@ -18,13 +19,8 @@ import { SharedModule } from './shared/shared.module';
 import { SpinnerComponent } from './shared/spinner.component';
 import { MaintenanceModule } from './main-app/maintenance/maintenance.module';
 import { RestaurantModule } from './main-app/restaurant/restaurant.module';
-import { CaloriesModule } from './main-app/restaurant/calories/calories.module';
 import { FoyerModule } from './main-app/foyer/foyer.module';
 import { UserModule } from './main-app/user/user.module';
-import { FormsModule } from '@angular/forms';
-import {NgCircleProgressModule} from "ng-circle-progress";
-import {NgxGaugeModule} from "ngx-gauge";
-
 
 @NgModule({
   declarations: [
@@ -38,18 +34,15 @@ import {NgxGaugeModule} from "ngx-gauge";
     BrowserModule,
     BrowserAnimationsModule,
     DemoMaterialModule,
+    FormsModule,
     FlexLayoutModule,
     HttpClientModule,
     SharedModule,
     UserModule,
     RestaurantModule,
-    CaloriesModule,
     FoyerModule,
     MaintenanceModule,
-    FormsModule,
-    FormsModule,
-    RouterModule.forRoot(AppRoutes),
-    NgxGaugeModule,
+    RouterModule.forRoot(AppRoutes)
   ],
   providers: [
     {
