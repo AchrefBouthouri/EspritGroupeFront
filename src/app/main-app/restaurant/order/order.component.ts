@@ -2,6 +2,7 @@ import { Component, NgModule, OnInit } from '@angular/core';
 import { OrderService } from './order.service';
 import {} from '../../../app.module';
 import {Router} from "@angular/router";
+import {FormGroup} from "@angular/forms";
 
 
 @Component({
@@ -19,7 +20,9 @@ export class OrderComponent implements OnInit {
   filteredOrders: any;
   searchTerm: any;
   searchOption:any;
-
+  optionalfirstFormGroup: FormGroup=Object.create(null);
+  optionalsecondFormGroup: FormGroup=Object.create(null);
+  isOptional = true;
   constructor(private orderservice: OrderService) {}
 
   ngOnInit(): void {
