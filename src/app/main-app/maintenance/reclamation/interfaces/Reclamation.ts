@@ -3,8 +3,6 @@ export default interface Reclamation {
     description: string;
     createdAt: Date;
     updatedAt: Date;
-    date_debut: Date;
-    date_fin:Date;
     type: string;
     progress: string;
     priorite: string;

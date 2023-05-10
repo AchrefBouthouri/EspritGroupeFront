@@ -10,6 +10,8 @@ export class ReclamationService {
 
   private onAddReclmation = new Subject();
   onAddReclamationEvent = this.onAddReclmation.asObservable();
+  private onUpdateReclmation = new Subject();
+  onUpdateReclamationEvent = this.onUpdateReclmation.asObservable();
   private onClotureReclmation = new Subject();
   onClotureReclamationEvent = this.onClotureReclmation.asObservable();
   private onDeleteReclmation = new Subject();
@@ -40,10 +42,11 @@ export class ReclamationService {
       }));
   }
 
-  UpdateReclamation(data: any) {
+  UpdateReclamation(id: any,data: any) {
     return this.http.put<any>(
-      'http://localhost:8081/api/maintenance/reclamation/',data)
+      'http://localhost:8081/api/maintenance/reclamation/'+id,data)
       .pipe(map(response => {
+        this.onUpdateReclmation.next(response);
         return response;
       }));
   }

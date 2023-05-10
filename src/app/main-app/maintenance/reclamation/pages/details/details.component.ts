@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit } from '@angular/core';
 import { ReclamationComponent } from '../../reclamation.component';
 import { ReclamationService } from '../../reclamation.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-details',
@@ -17,7 +18,7 @@ export class DetailsComponent implements OnInit {
     end: new FormControl(null),
   });
 
-  constructor(private _formBuilder: FormBuilder, private parent: ReclamationComponent, private reclamationService: ReclamationService) { }
+  constructor(public snackBar: MatSnackBar, private _formBuilder: FormBuilder, private parent: ReclamationComponent, private reclamationService: ReclamationService) { }
 
   ngOnInit() {
     console.log(this.reclamation.description)
@@ -45,13 +46,22 @@ export class DetailsComponent implements OnInit {
       date_debut: this.FormGroup.value.start,
       date_fin: this.FormGroup.value.end
     }
-    this.reclamationService.UpdateReclamation(data).subscribe(response => {
+    this.reclamationService.UpdateReclamation(this.reclamation.id,data).subscribe(response => {
       console.log("update",response);
+      this.openSnackBar("complaint modify","successfully")
+      this.parent.tabGroup.selectedIndex = 0;
     })
+
 
   }
   cancel() {
     this.parent.tabGroup.selectedIndex = 0;
+  }
+
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 2000,
+    });
   }
 
 }

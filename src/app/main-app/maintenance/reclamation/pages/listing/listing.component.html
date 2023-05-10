@@ -3,7 +3,7 @@
     <mat-card>
       <mat-card-content>
         <mat-card-title>Complaint lists</mat-card-title>
-        <mat-form-field  style="margin-left: 16cm;">
+        <mat-form-field>
           <input matInput placeholder="Search by description" [(ngModel)]="searchDescription" [matAutocomplete]="auto">
           <mat-autocomplete #auto="matAutocomplete">
             <mat-option *ngFor="let description of filteredDescriptions" [value]="description">
@@ -31,7 +31,7 @@
               <button *ngIf="reclamation.availablity" mat-icon-button color="primary" (click)="closeReclamation(reclamation.id)">
                 <mat-icon>check_circle_outline</mat-icon>
               </button>
-              <button *ngIf="!reclamation.availablity" mat-icon-button style="color: green;" (click)="closeReclamation(reclamation.id)">
+              <button *ngIf="!reclamation.availablity" mat-icon-button style="color: green;">
                 <mat-icon>check_circle_outline</mat-icon>
               </button>
               <button mat-icon-button color="warn" (click)="deleteReclamation(reclamation.id)">
