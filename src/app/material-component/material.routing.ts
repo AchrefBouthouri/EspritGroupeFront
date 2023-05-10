@@ -23,6 +23,8 @@ import { BookingComponent } from '../main-app/foyer/booking/booking.component';
 import { RegisterComponent } from '../main-app/user/register/register.component';
 import { ForumComponent } from '../main-app/forum/forum/forum.component';
 import { DetailsComponent } from '../main-app/maintenance/reclamation/pages/details/details.component';
+import {FoyerComponent} from "../main-app/foyer/foyer.component";
+import {RoomComponent} from "../main-app/foyer/room/room.component";
 
 export const MaterialRoutes: Routes = [
   {
@@ -42,8 +44,16 @@ export const MaterialRoutes: Routes = [
     component: OrderComponent
   },
   {
+    path: 'room',
+    component: RoomComponent
+  },
+  {
     path: 'booking',
     component: BookingComponent
+  },
+  {
+    path: 'foyer',
+    component: FoyerComponent
   },
   {
     path: 'forum',

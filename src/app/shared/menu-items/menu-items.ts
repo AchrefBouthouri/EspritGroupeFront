@@ -12,10 +12,13 @@ const MENUITEMS = [
   { state: 'dashboard', name: 'Dashboard', type: 'link', icon: 'av_timer' },
   { state: 'login', type: 'link', name: 'User', icon: 'person' },
   { state: 'order', type: 'link', name: 'Restaurant', icon: 'food_bank' },
-  { state: 'booking', type: 'link', name: 'Foyer', icon: 'domain' },
+  { state: 'booking', type: 'link', name: 'Bookings Managment', icon: 'view_comfy' },
+  { state: 'room', type: 'link', name: 'Rooms Managment', icon: 'domain' },
+  { state: 'foyer', type: 'link', name: 'dorm-front', icon: 'blur_circular' },
+
   { state: 'forum', type: 'link', name: 'Forum', icon: 'forum' },
   { state: 'reclamation', type: 'link', name: 'Reclamation', icon: 'assignment' },
-  
+
   // { state: 'button', type: 'link', name: 'Buttons', icon: 'crop_7_5' },
   // { state: 'grid', type: 'link', name: 'Grid List', icon: 'view_comfy' },
   // { state: 'lists', type: 'link', name: 'Lists', icon: 'view_list' },

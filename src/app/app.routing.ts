@@ -24,14 +24,14 @@ export const AppRoutes: Routes = [
         loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
       }
     ],
-    
+
   },
   {
     path: 'restaurant',
     component: RestaurantComponent
   },
   {
-    path: 'foyer',
+    path: 'room',
     component: FoyerComponent
   }
 ];
