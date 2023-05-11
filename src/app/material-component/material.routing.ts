@@ -59,10 +59,7 @@ export const MaterialRoutes: Routes = [
     path: 'capacity',
     component: CapacityComponent
   },
-  {
-    path: 'calories',
-    component: CaloriesComponent
-  },
+
   {
     path: 'booking',
     component: BookingComponent

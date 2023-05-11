@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {interval, Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {map, startWith, switchMap} from "rxjs/operators";
+import { FormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'app-restaurant-home',

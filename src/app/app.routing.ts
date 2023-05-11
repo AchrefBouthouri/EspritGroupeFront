@@ -3,6 +3,8 @@ import { Routes } from '@angular/router';
 import { FullComponent } from './layouts/full/full.component';
 import { FoyerComponent } from './main-app/foyer/foyer.component';
 import { RestaurantComponent } from './main-app/restaurant/restaurant.component';
+import {HomepageComponent} from "./homepage/homepage.component";
+import {CaloriesComponent} from "./main-app/restaurant/calories/calories.component";
 
 export const AppRoutes: Routes = [
   {
@@ -24,7 +26,7 @@ export const AppRoutes: Routes = [
         loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
       }
     ],
-    
+
   },
   {
     path: 'restaurant',
@@ -33,5 +35,14 @@ export const AppRoutes: Routes = [
   {
     path: 'foyer',
     component: FoyerComponent
-  }
+  },
+  {
+    path: 'home',
+    component: HomepageComponent
+  },
+  {
+    path: 'calories',
+    component: CaloriesComponent
+  },
+
 ];

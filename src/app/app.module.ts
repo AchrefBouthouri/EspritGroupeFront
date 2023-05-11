@@ -21,6 +21,7 @@ import { MaintenanceModule } from './main-app/maintenance/maintenance.module';
 import { RestaurantModule } from './main-app/restaurant/restaurant.module';
 import { FoyerModule } from './main-app/foyer/foyer.module';
 import { UserModule } from './main-app/user/user.module';
+import { HomepageComponent } from './homepage/homepage.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { UserModule } from './main-app/user/user.module';
     FullComponent,
     AppHeaderComponent,
     SpinnerComponent,
-    AppSidebarComponent
+    AppSidebarComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,

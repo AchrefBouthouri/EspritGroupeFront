@@ -9,6 +9,8 @@ import { CaloriesComponent } from './calories/calories.component';
 import { RestaurantHomeComponent } from './restaurant-home/restaurant-home.component';
 import {NgCircleProgressModule} from "ng-circle-progress";
 import {StatisticsComponent} from "./order/statistics/statistics.component";
+import {RestaurantComponent} from "./restaurant.component";
+import {NgxGaugeModule} from "ngx-gauge";
 
 
 
@@ -22,12 +24,18 @@ import {StatisticsComponent} from "./order/statistics/statistics.component";
     CapacityComponent,
     RestaurantHomeComponent,
     StatisticsComponent,
+    CaloriesComponent,
+    RestaurantComponent,
 
   ],
     imports: [
         CommonModule,
         DemoMaterialModule,
         FormsModule,
+      DemoMaterialModule,
+      FormsModule,
+      NgxGaugeModule
+
 
 
 

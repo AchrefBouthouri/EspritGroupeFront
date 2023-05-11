@@ -13,11 +13,11 @@ export class CaloriesComponent implements OnInit {
   gaugeLabel = "of your daily calories";
   gaugeAppendText = "%";
   markerConfig = {
-    "0": { color: '#555', size: 8, label: '0', type: 'line'},
-    "30": { color: '#255', size: 8, label: '30', type: 'line'},
-    "50": { color: '#255', size: 8, label: '50', type: 'line'},
-    "70": { color: '#255', size: 8, label: '70', type: 'line'},
-    "100": { color: '#255', size: 8, label: '100', type: 'line'},
+    "0": { color: '#fdfdfd', size: 8, label: '0', type: 'line'},
+    "30": { color: '#ffffff', size: 8, label: '30', type: 'line'},
+    "50": { color: '#ffffff', size: 8, label: '50', type: 'line'},
+    "70": { color: '#ffffff', size: 8, label: '70', type: 'line'},
+    "100": { color: '#ffffff', size: 8, label: '100', type: 'line'},
   }
   thresholdConfig = {
     '0': {color: 'green'},
