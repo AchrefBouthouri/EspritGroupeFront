@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListingComponent } from './reclamation/pages/listing/listing.component';
 import { DetailsComponent } from './reclamation/pages/details/details.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { RendezVousComponent } from './rendez-vous/rendez-vous.component';
 
 
 
@@ -16,7 +17,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     ReclamationComponent,
     AddComponent,
     ListingComponent,
-    DetailsComponent
+    DetailsComponent,
+    RendezVousComponent
   ],
   imports: [
     CommonModule,

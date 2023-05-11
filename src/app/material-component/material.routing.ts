@@ -27,6 +27,7 @@ import { CaloriesComponent } from '../main-app/restaurant/calories/calories.comp
 import {HOME} from "@angular/cdk/keycodes";
 import {RestaurantHomeComponent} from "../main-app/restaurant/restaurant-home/restaurant-home.component";
 import {StatisticsComponent} from "../main-app/restaurant/order/statistics/statistics.component";
+import { RendezVousComponent } from '../main-app/maintenance/rendez-vous/rendez-vous.component';
 
 
 export const MaterialRoutes: Routes = [
@@ -68,9 +69,13 @@ export const MaterialRoutes: Routes = [
     path: 'forum',
     component: ForumComponent
   },
-  {
-    path: 'reclamation',
-    component: ReclamationComponent
+  { 
+    path: 'claim', 
+    component: ReclamationComponent 
+  }, 
+  { 
+    path: 'appointment', 
+    component: RendezVousComponent 
   },
   {
     path: 'button',
@@ -137,3 +142,4 @@ export const MaterialRoutes: Routes = [
     component: SlideToggleComponent
   }
 ];
+

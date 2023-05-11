@@ -25,7 +25,7 @@ const MENUITEMS = [
   },
   { state: 'booking', type: 'link', name: 'Foyer', icon: 'domain' },
   { state: 'forum', type: 'link', name: 'Forum', icon: 'forum' },
-  { state: 'reclamation', type: 'link', name: 'Reclamation', icon: 'assignment' },
+  { state: 'reclamation', type: 'sub', name: 'Reclamation', icon: 'assignment' },
 
   // { state: 'button', type: 'link', name: 'Buttons', icon: 'crop_7_5' },
   // { state: 'grid', type: 'link', name: 'Grid List', icon: 'view_comfy' },

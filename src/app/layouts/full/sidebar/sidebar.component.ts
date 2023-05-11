@@ -7,8 +7,6 @@ import { MenuItems } from '../../../shared/menu-items/menu-items';
   styleUrls: []
 })
 export class AppSidebarComponent implements OnDestroy {
-  showSubMenu = false;
-  toggleSubMenu=false;
   mobileQuery: MediaQueryList;
 
   private _mobileQueryListener: () => void;

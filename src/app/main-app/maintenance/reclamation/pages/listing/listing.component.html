@@ -17,7 +17,7 @@
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
         <button mat-raised-button color="primary" (click)="search()">Search</button>
-        <mat-list-item *ngFor="let reclamation of filteredReclamationList">
+        <mat-list-item *ngFor="let reclamation of filteredReclamationList"> 
           <div class="reclamation-item">
             <div class="reclamation-details" (click)="detail(reclamation.id)">
               <h3 class="reclamation-description">Description: {{reclamation.description}}</h3>
