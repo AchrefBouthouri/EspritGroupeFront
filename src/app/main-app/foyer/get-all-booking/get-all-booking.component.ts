@@ -16,9 +16,16 @@ export class GetAllBookingComponent implements OnInit {
   extendBookingForm: FormGroup;
   deleteBookingForm: FormGroup;
   deletingBooking = false;
+  filteredBookings: Booking[] = [];
+  searchTerm: any;
+  searchOption: any;
 
-
-  constructor(private bookingService: BookingService, private formBuilder: FormBuilder,private router: Router, private snackBar: MatSnackBar) {
+  constructor(
+    private bookingService: BookingService,
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private snackBar: MatSnackBar
+  ) {
     this.extendBookingForm = this.formBuilder.group({
       newEndDate: ['', Validators.required],
       token: ['', Validators.required],
@@ -33,25 +40,62 @@ export class GetAllBookingComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllBookings();
-
   }
+
   getAllBookings(): void {
     this.bookingService.getAllBookings().subscribe((bookings: Booking[]) => {
       this.bookings = bookings;
-
+      this.filteredBookings = bookings;
     });
   }
 
   deleteBooking(bookingId: number): void {
-    this.deletingBooking = true; // set the variable to true
+    this.deletingBooking = true;
     this.bookingService.deleteBooking(bookingId).subscribe(() => {
-      this.bookings = this.bookings.filter((booking) => booking.bookingId !== bookingId);
-      this.snackBar.open('Booking deleted successfully', 'Close', { duration: 3000 });
+      this.bookings = this.bookings.filter(
+        (booking) => booking.bookingId !== bookingId
+      );
+      this.filteredBookings = this.filteredBookings.filter(
+        (booking) => booking.bookingId !== bookingId
+      );
+      this.snackBar.open('Booking deleted successfully', 'Close', {
+        duration: 3000
+      });
     }, () => {
       this.snackBar.open('Error deleting booking', 'Close', { duration: 3000 });
     }).add(() => {
       this.deletingBooking = false;
     });
+  }
+
+  filterBookings(): void {
+    if (!this.searchTerm) {
+      // if the search query is empty, show all bookings
+      this.filteredBookings = this.bookings;
+    } else {
+      // filter the bookings based on the selected search option
+      switch (this.searchOption) {
+        case 'id':
+          this.filteredBookings = this.bookings.filter((booking) =>
+            booking.bookingId.toString().toLowerCase().includes(this.searchTerm.toLowerCase())
+          );
+          break;
+        case 'roomId':
+          this.filteredBookings = this.bookings.filter((booking) =>
+            booking.roomId.toString().toLowerCase().includes(this.searchTerm.toLowerCase())
+          );
+          break;
+        case 'userEmail':
+          this.filteredBookings = this.bookings.filter((booking) =>
+            booking.userEmail.toLowerCase().includes(this.searchTerm.toLowerCase())
+          );
+          break;
+        default:
+          // if the search option is not recognized, show all bookings
+          this.filteredBookings = this.bookings;
+          break;
+      }
+    }
   }
   goToExtendBooking(bookingId: number): void {
     this.router.navigate(['ExtendBooking', bookingId]);

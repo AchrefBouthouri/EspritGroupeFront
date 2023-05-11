@@ -31,7 +31,7 @@ export const AppRoutes: Routes = [
     component: RestaurantComponent
   },
   {
-    path: 'room',
+    path: 'slim',
     component: FoyerComponent
   }
 ];

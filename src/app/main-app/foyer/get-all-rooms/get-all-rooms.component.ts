@@ -16,7 +16,9 @@ export class GetAllRoomsComponent implements OnInit {
   rooms: Room[] = [];
   roomTypes = Object.values(RoomType);
   selectedRoom: Room | undefined;
-
+  filteredRooms: Room[] = [];
+  searchTerm: string = '';
+  searchOption: string = '';
   constructor(private roomService: RoomService, private dialog: MatDialog, private router: Router) { }
 
   ngOnInit(): void {
@@ -24,7 +26,10 @@ export class GetAllRoomsComponent implements OnInit {
   }
 
   getRooms(): void {
-    this.roomService.getRooms().subscribe((rooms) => (this.rooms = rooms));
+    this.roomService.getRooms().subscribe((rooms) => {
+      this.rooms = rooms;
+      this.filteredRooms = rooms; // store all rooms in a separate array
+    });
   }
   updateRoom(roomNumber: string, room: Room): void {
     this.roomService.updateRoom(roomNumber, room).subscribe(() => {
@@ -34,7 +39,42 @@ export class GetAllRoomsComponent implements OnInit {
   onSelect(room: Room): void {
     this.selectedRoom = room;
   }
-  createBooking(roomId: number): void {
+  filterRooms(): void {
+    if (!this.searchTerm) {
+      this.filteredRooms = this.rooms;
+    } else {
+      switch (this.searchOption) {
+        case 'roomNumber':
+          this.filteredRooms = this.rooms.filter((room: Room) =>
+            room.roomNumber.toLowerCase().includes(this.searchTerm.toLowerCase())
+          );
+          break;
+        case 'roomType':
+          this.filteredRooms = this.rooms.filter((room: Room) =>
+            room.roomType.toLowerCase().includes(this.searchTerm.toLowerCase())
+          );
+          break;
+        case 'description':
+          this.filteredRooms = this.rooms.filter((room: Room) =>
+            room.description.toLowerCase().includes(this.searchTerm.toLowerCase())
+          );
+          break;
+        case 'surface':
+          this.filteredRooms = this.rooms.filter((room: Room) =>
+            room.surface.toString().toLowerCase().includes(this.searchTerm.toLowerCase())
+          );
+          break;
+        case 'price':
+          this.filteredRooms = this.rooms.filter((room: Room) =>
+            room.price.toString().toLowerCase().includes(this.searchTerm.toLowerCase())
+          );
+          break;
+        default:
+          this.filteredRooms = this.rooms;
+          break;
+      }
+    }
+  }  createBooking(roomId: number): void {
     this.router.navigate(['/createBooking', roomId]);
   }
   openBookingForm(room: Room): void {

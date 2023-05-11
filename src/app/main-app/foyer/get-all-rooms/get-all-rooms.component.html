@@ -15,9 +15,21 @@
   <div class="row">
     <div class="col-md-12 text-center">
       <h1>Rooms</h1>
+      <form (submit)="filterRooms()">
+        <div class="search-container">
+          <mat-form-field class="search-input">
+            <input matInput placeholder="Search" [(ngModel)]="searchTerm" name="searchTerm">
+          </mat-form-field>
+          <mat-form-field class="search-select">
+            <mat-select [(ngModel)]="searchOption" name="searchOption">
+              <mat-option *ngFor="let option of ['roomNumber', 'roomType', 'description', 'surface', 'price']" [value]="option">{{option}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <button mat-button type="submit">Search</button>
+        </div>
+      </form>
     </div>
-
-  </div>
+   </div>
   <div class="row">
     <div  *ngFor="let room of rooms" class="col-md-4">
       <div class="col-md-10 col-sm-10 card">
